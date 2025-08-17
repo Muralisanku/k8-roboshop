@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: muralisanku:mongodb:v1
+        image: muralisanku/mongodb:v1
         imagePullPolicy: Always
 ---
 apiVersion: v1
