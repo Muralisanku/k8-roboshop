@@ -1,5 +1,3 @@
-
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -37,12 +35,12 @@ metadata:
   name: web
   namespace: roboshop
 spec:
-type: LoadBalancer
+  type: LoadBalancer
   selector:
     app: web
     project: roboshop
     tier: web
   ports:
-    - protocol: TCP
-      port: 80 #service-port
-      targetPort: 80 #container-port
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 80 #container-port
