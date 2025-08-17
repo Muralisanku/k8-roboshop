@@ -93,43 +93,41 @@ kind: Deployment
 metadata:
   name: web
   namespace: roboshop
-  labels: # these labels are deployment labels
+  labels:
     app: web
     project: roboshop
     tier: web
 spec:
   replicas: 1
   selector:
-    matchLabels: # these labels are used to find the pods
+    matchLabels:
       app: web
       project: roboshop
       tier: web
   template:
     metadata:
-      labels: # these labels are pod labels
+      labels:
         app: web
         project: roboshop
         tier: web
     spec:
-  containers:
-    - name: web
-      image: muralisanku/web:v1
-      imagePullPolicy: Always
-      volumeMounts:
+      containers:
+      - name: web
+        image: muralisanku/web:v1
+        imagePullPolicy: Always
+        volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true
-  volumes:
-    - name: nginx-conf
-      configMap:
-        name: web
-        items:
-          - key: nginx-conf
-            path: nginx-conf
-        # envFrom:
-        # - configMapRef:
-        #    name: catalogue
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: web
+          items:
+          - key: nginx.conf
+            path: nginx.conf
+
 ---
 apiVersion: v1
 kind: Service
