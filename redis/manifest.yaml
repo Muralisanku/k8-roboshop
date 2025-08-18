@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: muralisanku/redis:v1
+        image: redis
         imagePullPolicy: Always
 ---
 apiVersion: v1
@@ -37,6 +37,6 @@ spec:
     project: roboshop
     tier: db
   ports:
-    - protocol: TCP
-      port: 6379 #service-port
-      targetPort: 6379 #container-port
+  - protocol: TCP
+    port: 6379 #service-port
+    targetPort: 6379 #container-port
