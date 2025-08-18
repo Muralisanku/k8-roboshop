@@ -1,6 +1,6 @@
-#
-# Build
-#
+
+#Build
+
 FROM maven AS build
 
 WORKDIR /opt/shipping
