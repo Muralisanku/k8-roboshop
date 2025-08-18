@@ -35,6 +35,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.instana</groupId>
+            <artifactId>instana-sdk</artifactId>
+            <version>1.0.12</version>
+        </dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
