@@ -18,13 +18,6 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>instana</id>
-            <url>https://artifact-public.instana.io/artifactory/shared</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -41,11 +34,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.instana</groupId>
-            <artifactId>instana-sdk</artifactId>
-            <version>1.0.12</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
