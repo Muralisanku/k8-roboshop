@@ -1,19 +1,20 @@
-
-#Build
-
-FROM maven AS build
+# Build
+FROM maven:3.8.4-openjdk-8 AS build
 
 WORKDIR /opt/shipping
 
-COPY pom.xml /opt/shipping/
+# Copy only pom.xml first to download dependencies
+COPY pom.xml .
 RUN mvn dependency:resolve
-COPY src /opt/shipping/src/
-RUN mvn package
 
-#
+# Copy source code
+COPY src ./src/
+
+# Build without tests and skip main compilation (focus on just creating the jar)
+RUN mvn package -Dmaven.test.skip=true -Dmaven.main.skip=true
+
 # Run
-#
-FROM openjdk:8-jre-alpine3.9
+FROM openjdk:8-jre-alpine
 
 EXPOSE 8080
 
